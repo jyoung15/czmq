@@ -128,7 +128,7 @@ s_self_prepare_udp (self_t *self)
         //  Bind to the port on all interfaces
 #if (defined (__WINDOWS__))
         inaddr_t sockaddr = address;
-#elif (defined (__APPLE__))
+#elif (defined (__APPLE__) || defined(__FreeBSD__))
         inaddr_t sockaddr = self->broadcast;
         sockaddr.sin_addr.s_addr = htons (INADDR_ANY);
 #else
